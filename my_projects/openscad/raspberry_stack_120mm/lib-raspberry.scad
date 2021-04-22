@@ -299,45 +299,102 @@ module aperture_pattern(size, line_size, line_space) {
 
 module triangle(){
     difference(){
-        cube([20,20,10]);
-        rotate([0,0,45]) cube([50,50,50]);
+        cube([5,5,160]);
+        rotate([0,0,45]) cube([50,50,160]);
     }
 }
-module bed (vent, screw = 1, out = false) {
+module bed (vent) {
     difference () {
-        cube([118,160,2.3]);
-        translate ([30,-1,0]) cube([60,20,120]);
-        translate ([10,-1,0]) triangle();
-        translate ([110,-1,0]) mirror([1,0,0]) triangle();
-        // vent
+        cube([113.5,147,4]);
+        //
+        translate ([4,4,3]) cube([105.5,139,3]);
+        translate ([4,4,2]) cube([105.5,47,3]);
+        translate ([4,63,2]) cube([105.5,36,3]);
+        translate ([4,112,2]) cube([105.5,31,3]);
+        //
+        translate ([11.75,-1,0]) cube([90,10,120]);
+        translate ([11.75,137,0]) cube([90,10,120]);
         if (vent) {
-            for ( i = [ 4 : 7 ]){
+            for ( i = [ 2 : 6 ]){
                 for ( j = [ 2 : 3 ]) {
-                    translate ([i * 11,j * 12,-5]) rotate([-45,0,0]) scale([1.5,1,1]) cylinder(20, 3, 3);
+                    translate ([i * 13,j * 12,-5]) rotate([40,0,0]) scale([1.5,1,1]) cube([6, 6, 20]);
                 }
             }          
-            for ( i = [ 1 : 10 ]){
+            for ( i = [ 1 : 7 ]){
                 for ( j = [ 4 : 9 ]) {
-                    translate ([i * 11,j * 12,-5]) rotate([-45,0,0]) scale([1.5,1,1]) cylinder(20, 3, 3);
+                    translate ([i * 13,j * 12,-5]) rotate([40,0,0]) scale([1.5,1,1]) cube([6, 6, 20]);
                 }
             }
-            for ( i = [ 4 : 7 ]){
-                for ( j = [ 10 : 12 ]) {
-                    translate ([i * 11,j * 12,-5]) rotate([-45,0,0]) scale([1.5,1,1]) cylinder(20, 3, 3);
+            for ( i = [ 2 : 6 ]){
+                for ( j = [ 12:13 ]) {
+                    translate ([i * 13,j * 10,-5]) rotate([40,0,0]) scale([1.5,1,1]) cube([6, 6, 20]);
                 }
             }              
         }
-        translate ([30,40,0]) cylinder(20, screw, screw);
-        translate ([90,40,0]) cylinder(20, screw, screw);
-        translate ([30,138,0]) cylinder(20, screw, screw);
-        translate ([90,138,0]) cylinder(20, screw, screw);
-        if (out) {
-            translate ([-2,-2,0]) cube([15,22,15]);
-            translate ([105,-2,0]) cube([15,22,15]);
-        } 
+        
+//        translate ([30,40,0]) cylinder(20, screw, screw);
+//        translate ([90,40,0]) cylinder(20, screw, screw);
+//        translate ([30,138,0]) cylinder(20, screw, screw);
+//        translate ([90,138,0]) cylinder(20, screw, screw);
+//        if (out) {
+//            translate ([-2,-2,0]) cube([15,22,15]);
+//            translate ([105,-2,0]) cube([15,22,15]);
+//        } 
+    }
+    translate([-3,18,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+    translate([113.5,18,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+    translate([-3,18+110,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+    translate([113.5,18+110,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+     
+}
+
+module hander_top_1 () {
+   difference () {
+    cube([124.5,10,5]);
+//    translate ([20,5,-1]) cylinder(15,2,2);
+//    translate ([100,5,-1]) cylinder(15,2,2);
+   }
+}
+
+module hander_top_2 () {
+   difference () {
+    cube([10,160,5]);
+//    translate ([5,20, -1]) cylinder(15,2,2);
+//    translate ([5,93, -1]) cylinder(15,2,2);
+   }
+   translate([-5,0,5]) rotate([-90,0,0]) triangle();
+}
+
+module hander_leg () {
+  cube ([5.5,7.5,13]);
+}
+
+
+module hander_bottom () {
+    //top
+    difference () {
+      union() {
+        translate([-5.5,-1.4,13]) hander_top_1 ();
+        translate([-5.5,124,13]) hander_top_1 ();
+        translate([-9.5,-1.4,13])   hander_top_2 ();
+        translate([125,158.5,13]) rotate ([0,0,180]) hander_top_2 ();
+        
+        translate([-8.4,14.1,0]) hander_leg ();
+        translate([-3,18,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+        
+        translate([117.6,14.1,0]) hander_leg ();
+        translate([114.6,18,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+        
+
+        translate([-8.4,14.1+110,0]) hander_leg ();
+        translate([-3,18+110,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+        
+        translate([117.6,14.1+110,0]) hander_leg ();
+        translate([114.6,18+110,2]) rotate([0,90,0]) cylinder(3,1.9,1.9);
+      }
+      translate([5,-5,17]) cube([105,170,10]);
     }
     
-     
 }
 
 module side (bottom) {
@@ -360,3 +417,5 @@ module side (bottom) {
     }
   }
 }
+//bed(vent=true);
+//hander_bottom();
