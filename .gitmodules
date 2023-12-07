@@ -1,0 +1,3 @@
+[submodule "my_projects/openscad/Orange_PI_5_Mobile_Battery_Rack/BOSL2"]
+	path = my_projects/openscad/Orange_PI_5_Mobile_Battery_Rack/BOSL2
+	url = git@github.com:BelfrySCAD/BOSL2.git
