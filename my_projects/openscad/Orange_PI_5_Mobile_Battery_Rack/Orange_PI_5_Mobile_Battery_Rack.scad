@@ -106,7 +106,7 @@ difference() {
   translate([10, -10, 0])
     cube([12, 20, 58] );
   translate([37, -8, -2])
-    cube([10, 10, 15] );
+    cube([10, 100, 21] );
   // Pi 5 exclude
   translate([5, 5, -5])
     minkowski(){
@@ -119,12 +119,19 @@ difference() {
       cube( [12,43,200]);
       cylinder(1, center=true);
     };
-  // Battery 5 exclude  
+  // Battery exclude  
   translate([32, 2.5, -6])
     minkowski(){
       cube( [18.5,68,200]);
       cylinder(1, center=true);
     };
+   // Battery window
+   translate( [50, 36.5, 12])
+   rotate([0, 90, 0])
+   cylinder(h = 10, r = 7);
+   //Power Off button
+   translate( [17, 21, -10])
+   cylinder(h = 10, r = 7);    
 //  translate([-100, -100, 7.9])
 //    cube([200,200,200]);
 
