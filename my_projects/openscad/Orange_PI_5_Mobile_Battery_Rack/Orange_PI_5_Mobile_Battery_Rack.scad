@@ -129,9 +129,12 @@ difference() {
    translate( [50, 36.5, 12])
    rotate([0, 90, 0])
    cylinder(h = 10, r = 7);
-   //Power Off button
-   translate( [17, 21, -10])
-   cylinder(h = 10, r = 7);    
+   // Power Off button
+   translate( [17, 21, -15])
+   cylinder(h = 10, r = 3.5);   
+   // Push powerbank 
+   translate( [42, 38, -15])
+   cylinder(h = 20, r = 3.5);       
 //  translate([-100, -100, 7.9])
 //    cube([200,200,200]);
 
