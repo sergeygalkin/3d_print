@@ -118,31 +118,31 @@ difference() {
          cylinder(h = 60, r=4, $fn=6);
     }    
 
-    // Bottom 
-    bottom_start_xx =  - 1;
-    bottom_count = 17;
-    for ( i = [1:bottom_count]) {
-      translate( [bottom_start_xx, bottom_start, bottom_start_bottom + i * 8 + 1 ]) 
+    // Back
+    back_start =  - 1;
+    back_count = 17;
+    for ( i = [1:back_count]) {
+      translate( [back_start, bottom_start, bottom_start_bottom + i * 8 + 1 ])
         rotate( [90, 0, 90 ])
          cylinder(h = bottom_height, r=4, $fn=6);
     }   
-    for ( i = [1:bottom_count]) {
-      translate( [bottom_start_xx, bottom_start + 7, bottom_start_bottom + i * 8 - 3 ]) 
+    for ( i = [1:back_count]) {
+      translate( [back_start, bottom_start + 7, bottom_start_bottom + i * 8 - 3 ])
         rotate( [90, 0, 90 ])
          cylinder(h = bottom_height, r=4, $fn=6);
     }  
-    for ( i = [1:bottom_count]) {
-      translate( [bottom_start_xx, bottom_start + 7 * 2, bottom_start_bottom + i * 8 + 1 ]) 
+    for ( i = [1:back_count]) {
+      translate( [back_start, bottom_start + 7 * 2, bottom_start_bottom + i * 8 + 1 ])
         rotate( [90, 0, 90 ])
          cylinder(h = bottom_height, r=4, $fn=6);
     }
-    for ( i = [1:bottom_count]) {
-      translate( [bottom_start_xx, bottom_start + 7 * 3, bottom_start_bottom + i * 8 - 3 ]) 
+    for ( i = [1:back_count]) {
+      translate( [back_start, bottom_start + 7 * 3, bottom_start_bottom + i * 8 - 3 ])
         rotate( [90, 0, 90 ])
          cylinder(h = bottom_height, r=4, $fn=6);
     }
-    for ( i = [1:bottom_count]) {
-      translate( [bottom_start_xx, bottom_start + 7 * 4, bottom_start_bottom + i * 8 + 1 ]) 
+    for ( i = [1:back_count]) {
+      translate( [back_start, bottom_start + 7 * 4, bottom_start_bottom + i * 8 + 1 ])
         rotate( [90, 0, 90 ])
          cylinder(h = bottom_height, r=4, $fn=6);
     }       
